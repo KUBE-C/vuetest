@@ -65,7 +65,7 @@ export default {
       // 调用后端API验证用户名和密码
       // 比如发送POST请求到登录接口
       axios
-          .post("http://localhost:3000/api/customers/login", {
+          .post("http://localhost:3000/api/users/login", {
             userName: this.userName,
             password: this.password,
             kind: this.kind,

@@ -9,14 +9,14 @@ const router = express.Router();
 const Customer = require('../models/Customer');
 const Administrator = require('../models/Administrator');
 
-// @route  GET api/customers/test
+// @route  GET api/users/test
 // @desc   返回的请求的json数据
 // @access public
 router.get('/test', (req, res) => {
     res.json({ msg: 'login works' });
 });
 
-// @route  POST api/customers/register
+// @route  POST api/users/register
 // @desc   返回的请求的json数据
 // @access public
 router.post('/register', (req, res) => {
@@ -50,7 +50,7 @@ router.post('/register', (req, res) => {
     });
 });
 
-// @route  POST api/customers/login
+// @route  POST api/users/login
 // @desc   返回token jwt passport
 // @access public
 router.post('/login', (req, res) => {
@@ -112,7 +112,7 @@ router.post('/login', (req, res) => {
     }
 });
 
-//@route  GET api/customers/current
+//@route  GET api/users/current
 //@desc   return current customer
 //@access Private
 router.get(

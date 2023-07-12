@@ -84,7 +84,7 @@ export default {
         return;
       }
       // 调用后端API进行用户注册
-      axios.post('http://localhost:3000/api/customers/register', {
+      axios.post('http://localhost:3000/api/users/register', {
             userName: this.userName,
             password: this.password,
           })

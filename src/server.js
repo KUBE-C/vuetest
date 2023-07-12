@@ -6,8 +6,8 @@ const bodyParser = require("body-parser");
 const passport = require('passport');
 const cors = require('cors');//启用跨域支持
 
-//引入customers.js
-const customers = require("./api/users");
+//引入users.js
+const users = require("./api/users");
 const dishes = require("./api/dishes");
 
 require("./passport")(passport);
@@ -25,7 +25,7 @@ app.use(cors());
 app.use(passport.initialize());
 
 //使用routes
-app.use("/api/customers",customers);
+app.use("/api/users",users);
 app.use("/api/dishes",dishes);
 
 // 连接到 MongoDB 数据库
