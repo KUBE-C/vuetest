@@ -8,24 +8,30 @@
         <div class="fratop">注&nbsp;册&nbsp;信&nbsp;息</div>
         <table>
           <tr>
-            <td height="40">
-              用&nbsp;户&nbsp;号：
+            <td height="40" style="display: flex; align-items: center; justify-content: center;">
+              <div style="width:46px;">
+                <img src="src/assets/loginid.png" width="23">
+              </div>
               <input type="text" v-model="userName" :class="{ 'error-input': showError && !validateUserName() }"
                      placeholder="请输入用户名" @input="showError = true">
               <div class="error-message" v-if="showError && !validateUserName()">用户名不能为空</div>
             </td>
           </tr>
           <tr>
-            <td height="40">
-              密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：
+            <td height="40" style="display: flex; align-items: center; justify-content: center;">
+              <div style="width:46px;">
+                <img src="src/assets/loginsecret.png" width="23">
+              </div>
               <input type="password" v-model="password" :class="{ 'error-input': showError && !validatePassword() }"
                      placeholder="请输入密码" @input="showError = true">
               <div class="error-message" v-if="showError && !validatePassword()">密码长度应为4到20个字符</div>
             </td>
           </tr>
           <tr>
-            <td height="40">
-              确认密码：
+            <td height="40" style="display: flex; align-items: center; justify-content: center;">
+              <div style="width:46px;">
+                <img src="src/assets/loginsecret.png" width="23">
+              </div>
               <input type="password" v-model="password2" :class="{ 'error-input': showError && password !== password2 }"
                      placeholder="请确认密码" @input="showError = true">
               <div class="error-message" v-if="showError && password !== password2">两次输入的密码不一致</div>

@@ -9,17 +9,21 @@
         <form @submit.prevent="login">
           <table>
             <tr>
-              <td height="40">用&nbsp;户&nbsp;号：
-                <input type="text" v-model.trim="userName" placeholder="请输入用户名">
-              </td>
+              <td height="40" style="display: flex; align-items: center; justify-content: center;">
+                <div style="width:46px;">
+                <img src="src/assets/loginid.png" width="23">
+                </div>
+                <input type="text" v-model.trim="userName" placeholder="请输入用户名"></td>
             </tr>
             <tr>
-              <td height="40">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：
-                <input type="password" v-model.trim="password" placeholder="请输入密码">
-              </td>
+              <td height="40" style="display: flex; align-items: center; justify-content: center;">
+                <div style="width:46px;">
+                <img src="src/assets/loginsecret.png" width="23">
+                </div>
+                <input type="password" v-model.trim="password" placeholder="请输入密码"></td>
             </tr>
             <tr>
-              <td height="40">用户类型：
+              <td height="40" style="font-size: 16px">用户类型：
                 <select size="1" v-model="kind">
                   <option value="管理员">管理员</option>
                   <option value="顾客">顾客</option>
@@ -28,9 +32,11 @@
             </tr>
             <tr>
               <td height="45">
+                <div style="font-size: 13px">
                 <button type="submit" style="background-color:white">登录</button>&nbsp;
-                <button type="reset" style="background-color:yellow">重置</button>&nbsp;
+                <button type="reset" style="background-color:yellow">重置</button>&nbsp;&nbsp;
                 还没有账号？现在<router-link to="/register">注册</router-link>
+                </div>
               </td>
             </tr>
           </table>
