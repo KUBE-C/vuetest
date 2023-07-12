@@ -7,7 +7,7 @@ const passport = require('passport');
 const cors = require('cors');//启用跨域支持
 
 //引入customers.js
-const customers = require("./api/customers");
+const customers = require("./api/users");
 const dishes = require("./api/dishes");
 
 require("./passport")(passport);
