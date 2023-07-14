@@ -54,6 +54,8 @@
 import axios from "axios";
 import {ElMessage} from "element-plus";
 import "/src/assets/CSS/Web.css";
+import jwt_decode from 'jwt-decode';
+import store from '/src/store';
 
 export default {
   name: "Login",
@@ -68,7 +70,6 @@ export default {
   methods: {
     login() {
       // 调用后端API验证用户名和密码
-      // 比如发送POST请求到登录接口
       axios
           .post("http://localhost:3000/api/users/login", {
             userName: this.userName,
@@ -76,7 +77,20 @@ export default {
             kind: this.kind,
           })
           .then((res) => {
-            localStorage.setItem("eleToken", res.data.token);
+            //token
+            const {token} = res.data;
+
+            // 存储到ls
+            localStorage.setItem("eleToken", token);
+
+            // 解析token
+            const decoded =jwt_decode(token);
+            //console.log(decoded);
+
+            // token存储到vuex中,存储数据
+            /*store.dispatch("setIsAuthenticated", !this.isEmpty(decoded));
+            store.dispatch("setUser", decoded);*/
+
             if (this.kind === "管理员") {
               // 跳转到管理员页面
               localStorage.setItem("kind", "管理员");
@@ -99,6 +113,14 @@ export default {
             ElMessage.error("用户名或密码错误");
           });
     },
+    isEmpty(value) {
+      return (
+          value === undefined ||
+          value === null ||
+          (typeof value === "object" && Object.keys(value).length === 0) ||
+          (typeof value === "string" && value.trim().length === 0)
+      );
+    }
   },
 };
 </script>

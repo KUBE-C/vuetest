@@ -44,7 +44,6 @@ const router = createRouter({
 });
 
 // 添加路由守卫
-// 添加路由守卫
 router.beforeEach((to, from, next) => {
     const isLogin = localStorage.eleToken ? true : false;
     const kind = localStorage.kind;
