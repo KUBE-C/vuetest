@@ -1,6 +1,6 @@
 <template>
   <div class="admin">
-    <HeadNav></HeadNav>
+    <HeadNav :userName="this.$route.query.userName"></HeadNav>
     <LeftMenu></LeftMenu>
     <div class="rightContainer">
       <router-view></router-view>

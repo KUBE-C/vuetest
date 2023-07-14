@@ -23,7 +23,11 @@
                 <input type="password" v-model.trim="password" placeholder="请输入密码"></td>
             </tr>
             <tr>
-              <td height="40" style="font-size: 16px">用户类型：
+              <td height="40" style="display: flex; align-items: center;">
+                <div style="width: 10px;"></div>
+                <div style="width:46px;">
+                  <img src="src/assets/logincard.png" width="23">
+                </div>
                 <select size="1" v-model="kind">
                   <option value="管理员">管理员</option>
                   <option value="顾客">顾客</option>
@@ -48,6 +52,7 @@
 
 <script>
 import axios from "axios";
+import {ElMessage} from "element-plus";
 import "/src/assets/CSS/Web.css";
 
 export default {
@@ -71,21 +76,27 @@ export default {
             kind: this.kind,
           })
           .then((res) => {
-            // 登录成功，根据用户类型进行跳转
             localStorage.setItem("eleToken", res.data.token);
             if (this.kind === "管理员") {
               // 跳转到管理员页面
               localStorage.setItem("kind", "管理员");
-              this.$router.push("/admin");
+              this.$router.push({
+                path:"/admin",
+                query:{userName:this.userName}
+              });
             } else {
               // 跳转到顾客页面
               localStorage.setItem("kind", "顾客");
-              this.$router.push("/customer");
+              ElMessage.success('登录成功');
+              this.$router.push({
+                path:"/customer",
+                query:{userName: this.userName}
+              });
             }
           })
           .catch((error) => {
             // 登录失败，进行相应的处理
-            alert("用户名或密码错误");
+            ElMessage.error("用户名或密码错误");
           });
     },
   },

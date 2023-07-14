@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="box">
       <ul class="left">
         <li>门店管理
@@ -30,14 +29,12 @@
         </li>
       </ul>
     </div>
-  </div>
 </template>
 
 <script>
-import axios from "axios";
-import "/src/assets/CSS/administratorWeb.css";
 
 export default {
+  name: "LeftMenu",
   data() {
     return {
    //  dishes: [] // 菜品数据
@@ -47,5 +44,32 @@ export default {
 </script>
 
 <style scoped>
-/* 样式表 */
+.box{
+  display: flex;
+}
+ul,li{
+  list-style-type: none;
+  padding: 8px;
+}
+.left{
+  margin-top: 0px;
+  padding: 13px;
+  background-color: #f5f5f5;
+  width: 10%;
+  height: 1000px;
+}
+li a{
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+}
+li a:hover{
+  background-color:darkgray;
+}
+#line{
+  text-decoration-line: underline;
+  background-color: darkgray;
+}
+
 </style>

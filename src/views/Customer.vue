@@ -1,33 +1,27 @@
 <template>
-  <div class="customer">
-    顾客页面
-    <!-- <HeadNav></HeadNav> -->
-    <!-- <LeftMenu></LeftMenu> -->
+  <div class="custom">
+    <CustomerHead :userName="this.$route.query.userName"></CustomerHead>
+    <CustomerLeft></CustomerLeft>
     <div class="rightContainer">
       <router-view></router-view>
     </div>
   </div>
 </template>
 
-
 <script>
-/*
-import HeadNav from "../components/HeadNav";
-import LeftMenu from "../components/LeftMenu";
-*/
+import CustomerHead from "../components/CustomerHead.vue";
+import CustomerLeft from "../components/CustomerLeft.vue";
 
 export default {
-  name: 'customer',
+  name: "Customer",
   components: {
-    // HeadNav,  // 添加头部导航栏组件
-    // LeftMenu,  // 添加左侧菜单栏组件
-  },
-  // 其他组件选项...
+    CustomerHead,
+    CustomerLeft
+  }
 };
-
 </script>
 <style scoped>
-.customer {
+.custom {
   width: 100%;
   height: 100%;
   overflow: hidden;
